@@ -1,0 +1,19 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4197
+
+" Script Name: numsign.vim 
+" Version:     1.0
+" Last Change: Aug 16, 2012
+" Author:      hjjdebug
+" Email:       hejinjing@tom.com
+" Description: like ultra edit signs but beyond it , jump between signs  according sign ID or line Number
+"
+" Usage:
+" it has tow working mode,  default is jump between signs according sign ID,
+" you can use \sm, which will toggle according sign ID  or according Line Number
+"
+"                <C-F2>   \ss ----> toggle sign
+"                <F2>     \sn ----> jump to next sign
+"                <S-F2>   \sp ----> jump to previous sign
+"                         \sc ----> clear all signs
+"                         \sm ----> toggle working mode
+"                         \sl ----> list current buffer signs
