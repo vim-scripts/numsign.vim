@@ -22,9 +22,9 @@
 if exists("loaded_Sign")
     finish
 endif
-let loaded_Sign = 1
+let loaded_Sign = 1.01
 if !has("signs")
-    echoerr "***sorry*** [".expand("%")."] your vim doesn't support signs"
+    echoerr "***sorry*** your vim doesn't support signs"
     finish
 endif
 " ---------------------------------------------------------------------
@@ -314,6 +314,8 @@ endfun
 " -------l-------------------------------------------------------------
 " GotoNextSign: PUBLIC {{{1
 fun! GotoNextSign()
+    call GetAllSigns()	" solve when add or remove lines ,sign pos moved
+    call s:SyncData()
     if b:sign_work_mode == 0
         let curLineNo      = line(".")
         let next_sign_line_number = s:GetNextSignLine_ByLineNo(curLineNo)
@@ -328,6 +330,8 @@ endfun
 " ---------------------------------------------------------------------
 " GotoPrevSign: PUBLIC {{{1
 fun! GotoPrevSign()
+    call GetAllSigns()	" solve when add or remove lines ,sign pos moved
+    call s:SyncData()
     if b:sign_work_mode == 0
         let curLineNo      = line(".")
         let prev_sign_line_number = s:GetPrevSignLine_ByLineNo(curLineNo)
@@ -351,6 +355,7 @@ fun! ToggleSign()
     endif
 endfun
 " -------l-------------------------------------------------------------
+" ToggleMode PUBLIC {{{1
 fun! s:ToggleMode()
     if b:sign_work_mode==0
         let b:sign_work_mode=1
@@ -360,7 +365,6 @@ fun! s:ToggleMode()
     echo "sign working mode: " . (b:sign_work_mode==0 ? "pos" : "ID")
 endfun
 " ---------------------------------------------------------------------
-"  vim:fdm=marker ts=4 sw=4:
 " RmAllSigns: PUBLIC {{{1
 fun! RmAllSigns()
     let b:sign_place_number = 1
@@ -380,3 +384,4 @@ fun! s:EchoAllSigns()
     endfor
 endfun
 " ---------------------------------------------------------------------
+"  vim:fdm=marker ts=4 sw=4:
