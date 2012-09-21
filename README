@@ -2,7 +2,7 @@ This is a mirror of http://www.vim.org/scripts/script.php?script_id=4197
 
 " Script Name: numsign.vim 
 " Version:     1.01
-" Last Change: Sep 8, 2012
+" Last Change: Sep 21, 2012
 " Author:      hjjdebug
 " Email:       hejinjing@tom.com
 " Description: like ultra edit signs but beyond it , jump between signs  according sign ID or line Number
